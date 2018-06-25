@@ -1,5 +1,6 @@
 const path = require('path')
   , HtmlWebPackPlugin = require("html-webpack-plugin")
+  , ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 module.exports = {
   mode: process.env.NODE_ENV || 'production',
@@ -15,15 +16,22 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
+        include: __dirname + '/src',
         use: [{
           loader: "style-loader"
         }, {
-          loader: "css-loader"
+          loader: "css-loader",
+          options: {
+            importLoaders: 1,
+            camelCase: true,
+            modules: true
+          }
         }, {
           loader: "sass-loader",
           options: {
             includePaths: ["node_modules"],
-            sourceMap: true
+            sourceMap: true,
+            data: "@import './public/scss/global';"
           }
         }]
       },
@@ -43,7 +51,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname)
+      '@': path.resolve(__dirname),
+      Components: path.resolve(__dirname, 'src/components')
     }
   },
   plugins: [
