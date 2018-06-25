@@ -1,0 +1,17 @@
+.books {
+  position: relative;
+  padding: 50px 0;
+
+  &__item {
+    padding: 25px 50px;
+
+    // ITEM RESPONSIVE
+    @include query-between('plus', 'tablet') {
+      & { padding: 25px 35px }
+    }
+
+    @include query-max('plus') {
+      & { padding: 25px 20px }
+    }
+  }
+}

@@ -1,10 +1,13 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React, { Component } from "react"
+import ReactDOM from "react-dom"
 
 class App extends Component {
   render() {
     return (
-      <Header />
+      <main>
+        <Header />
+        <Books />
+      </main>
     )
   }
 }

@@ -1,0 +1,18 @@
+.book {
+  &__figure {
+    max-width: 128px;
+    
+    // FIGURE RESPONSIVE
+    @include query-max('plus') {
+      & { max-width: 100px }
+    }
+  }
+
+  &__cover { width: 100% }
+
+  &__title { padding: 5px 0 }
+
+  &__author {
+    @include setColor('gray')
+  }
+}

@@ -1,4 +1,6 @@
 {
   "Container": "container",
-  "Header": "header"
+  "Header": "header",
+  "Books": "books",
+  "Book": "book"
 }
