@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
-import Container from "Components/container"
 import "./style.scss"
 
 class Header extends Component {

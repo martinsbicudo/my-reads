@@ -1,8 +1,13 @@
 const path = require('path')
   , HtmlWebPackPlugin = require("html-webpack-plugin")
-  , ExtractTextPlugin = require("extract-text-webpack-plugin")
 
-module.exports = {
+  // CONFIG GLOBAL COMPONENTS
+  , { withGlobalComponents } = require("next-global-components")({
+    dirname: './src/components'
+  })
+  , { webpack: globalComponents } = withGlobalComponents()
+
+module.exports = globalComponents({
   mode: process.env.NODE_ENV || 'production',
   devtool: "source-map",
   module: {
@@ -59,4 +64,4 @@ module.exports = {
       filename: "./index.html"
     })
   ]
-}
+}, null)
