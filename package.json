@@ -25,6 +25,8 @@
     "image-webpack-loader": "^4.3.1",
     "next-global-components": "^0.0.2",
     "node-sass": "^4.9.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
