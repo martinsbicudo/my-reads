@@ -1,0 +1,7 @@
+.title {
+  @include setColor('primary');
+  @extend %font-asap-bold;
+  font-size: 2em;
+  border-bottom: 1px solid lighten(map-get($colors, 'primary'), 40%);
+  padding-bottom: 5px;
+}

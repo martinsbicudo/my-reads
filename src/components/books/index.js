@@ -2,42 +2,66 @@ import React, { Component } from "react"
 import ReactDOM from "react-dom"
 import { getAll } from "Service"
 import "./style.scss"
-import { list } from "postcss";
 
 class Books extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      books: [],
       reading: [],
       read: [],
-      readed: []
+      readed: [],
+      titles: [
+        'Currently Reading',
+        'Want to Read',
+        'Read'
+      ]
     }
   }
 
   //LIFECYCLES
   componentDidMount() {
-    getAll()
-      .then(data => this.setState({
-        books: data
-      }))
+  }
+
+  hasBooks() {
+    const { reading, read, readed, titles } = this.state
+      , hasItems = list => list.length > 0
+
+    return hasItems(reading) && hasItems(read) && hasItems(titles)
   }
 
   render() {
+    const { reading, read, readed, titles } = this.state
+      , allBooks = [
+        reading,
+        read,
+        readed
+      ]
+    
     return (
       <section className="books">
         <Container>
-            <ul className="grid -wrap halign-center valign-bottom">
-              {this.state.books.map((book, key) =>
-                <li className="books__item" key={key}>
-                  <Book
-                    thumbnail={book.imageLinks.thumbnail}
-                    title={book.title}
-                    author={book.authors[0]}
-                  />
-                </li>
-              )}
-            </ul>
+          {allBooks.map((books, i) =>
+            <section key={i}>
+              <div class="books__title">
+                <Title text={titles[i]} />
+              </div>
+              {books.length > 0
+                ? <ul className="grid -wrap halign-center valign-bottom">
+                  {books.map((book, k) =>
+                    <li className="books__item" key={k}>
+                      <Book
+                        thumbnail={book.imageLinks.thumbnail}
+                        title={book.title}
+                        author={book.authors[0]}
+                      />
+                    </li>
+                  )}
+                </ul>
+                : <div class="books__alert grid halign-center">
+                  <Alert text="You dont't have any books in this category :(" />
+                </div>}
+            </section>
+          )}
         </Container>
       </section>
     )

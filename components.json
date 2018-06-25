@@ -2,5 +2,7 @@
   "Container": "container",
   "Header": "header",
   "Books": "books",
-  "Book": "book"
+  "Book": "book",
+  "Alert": "alert",
+  "Title": "title"
 }

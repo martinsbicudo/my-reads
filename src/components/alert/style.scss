@@ -1,0 +1,12 @@
+.alert {
+  padding: 10px 15px;
+  font-size: 1.4em;
+
+  @each $color in map-keys($status) {
+    &.alert--#{$color} {
+      background: lighten(map-get($status, $color), 40%);
+      color: map-get($status, $color);
+      border-bottom: 2px solid map-get($status, $color);
+    }
+  }
+}

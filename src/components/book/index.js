@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
-import { getAll } from "Service"
 import "./style.scss"
 
 class Book extends Component {
