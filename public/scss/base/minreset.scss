@@ -1,0 +1,37 @@
+* {
+  border: 0;
+  box-sizing: border-box;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  font-size: 1em;
+  text-decoration: none;
+  box-shadow: none;
+}
+
+html,
+body {
+  min-height: 100vh;
+  width: 100%;
+}
+
+body {
+  @extend %font-asap;
+  font-size: 10px;
+}
+
+iframe {
+  display: block;
+}
+
+textarea {
+  resize: none;
+}
+
+// IE FALLBACKS
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  * { overflow: visible; }
+
+  main { display: block; }
+}

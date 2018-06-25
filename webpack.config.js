@@ -22,16 +22,14 @@ module.exports = {
         }, {
           loader: "css-loader",
           options: {
-            importLoaders: 1,
-            camelCase: true,
-            modules: true
+            importLoaders: 1
           }
         }, {
           loader: "sass-loader",
           options: {
             includePaths: ["node_modules"],
             sourceMap: true,
-            data: "@import './public/scss/global';"
+            data: "@import './public/scss/main';"
           }
         }]
       },

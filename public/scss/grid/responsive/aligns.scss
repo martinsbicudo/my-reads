@@ -1,0 +1,54 @@
+// GRID ALIGN RESPONSIVE
+$tags: map-get($grid, tags);
+
+@each $tag in map-keys($tags) {
+  @include query-max($tag) {
+    .grid {
+      &.halign {
+        &-left-#{$tag} { justify-content: flex-start }
+
+        &-center-#{$tag} { justify-content: center }
+
+        &-right-#{$tag} { justify-content: flex-end }
+
+        &-between-#{$tag} { justify-content: space-between }
+
+        &-around-#{$tag} { justify-content: space-around }
+      }
+
+      &.valign {
+        &-top-#{$tag} { align-items: flex-start }
+
+        &-middle-#{$tag} { align-items: center }
+
+        &-baseline-#{$tag} { align-items: baseline }
+        
+        &-bottom-#{$tag} { align-items: flex-end }
+
+        &-stretch-#{$tag} { align-items: stretch }
+      }
+
+      &.calign {
+        &-top-#{$tag} { align-content: flex-start }
+
+        &-middle-#{$tag} { align-content: center }
+
+        &-baseline-#{$tag} { align-content: baseline }
+
+        &-bottom-#{$tag} { align-content: flex-end }
+      }
+
+      .self {
+        &-top-#{$tag} { align-self: flex-start }
+
+        &-middle-#{$tag} { align-self: center }
+
+        &-bottom-#{$tag} { align-self: flex-end }
+
+        &-stretch-#{$tag} { align-self: stretch }
+
+        &-baseline-#{$tag} { align-self: baseline }
+      }
+    }
+  }
+}

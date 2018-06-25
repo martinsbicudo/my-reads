@@ -1,0 +1,27 @@
+// GRID RESPONSIVE
+$tags: map-get($grid, tags);
+
+@each $tag in map-keys($tags) {
+  @include query-max($tag) {
+    .grid-#{$tag} { display: flex }
+
+    .grid,
+    [class*='grid-'] {
+
+      &.-wrap-#{$tag} { flex-wrap: wrap }
+
+      &.-columns-#{$tag} { flex-direction: column }
+
+      > .col-#{$tag} { flex: 1 1 }
+
+      @for $i from 1 through map-get($grid, columns) {
+        > .col-#{$i}-#{$tag},
+        > .col-#{$i}-#{$tag}.-#{$tag} {
+          flex: 1 0 calc((100% / #{map-get($grid, columns)} * #{$i}));
+          max-width: calc((100% / #{map-get($grid, columns)} * #{$i}));
+          width: calc((100% / #{map-get($grid, columns)} * #{$i}));
+        }
+      }
+    }
+  }
+}
