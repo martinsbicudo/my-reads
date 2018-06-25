@@ -55,7 +55,8 @@ module.exports = globalComponents({
   resolve: {
     alias: {
       '@': path.resolve(__dirname),
-      Components: path.resolve(__dirname, 'src/components')
+      Components: path.resolve(__dirname, 'src/components'),
+      Service: path.resolve(__dirname, 'service')
     }
   },
   plugins: [
