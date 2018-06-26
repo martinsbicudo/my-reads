@@ -5,31 +5,30 @@ import "./style.scss"
 class Button extends Component {
   constructor(props) {
     super(props)
-    state = {
+    this.state = {
       isOpen: false
     }
+
+    // BINDS
+    this.handlerClick = this.handlerClick.bind(this)
   }
 
   handlerClick() {
-    setInterval({
+    this.setState({
       isOpen: !this.state.isOpen
     })
   }
 
   render() {
     const {
-      isOpen
-    } = this.state
-
-    const {
       type = 'primary',
       text
     } = this.props
 
     return (
-      <button onclick={handlerClick()} className={`button button--${type}`} data-active={isOpen}>
-        <span class="button__text">{text}</span>
-        <div class="button__context-menu">
+      <button onClick={this.handlerClick} className={`button button--${type}`} data-active={this.state.isOpen}>
+        <span className="button__text">{text}</span>
+        <div className="button__context-menu">
           <ContextMenu />  
         </div>
       </button>

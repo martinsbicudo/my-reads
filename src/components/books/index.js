@@ -40,9 +40,10 @@ class Books extends Component {
     return (
       <section className="books">
         <Container>
+          <Button text="MENU" />
           {allBooks.map((books, i) =>
             <section key={i}>
-              <div class="books__title">
+              <div className="books__title">
                 <Title text={titles[i]} />
               </div>
               {books.length > 0
@@ -54,10 +55,14 @@ class Books extends Component {
                         title={book.title}
                         author={book.authors[0]}
                       />
+
+                      <div className="books__button">
+                        <Button text="MENU" />
+                      </div>
                     </li>
                   )}
                 </ul>
-                : <div class="books__alert grid halign-center">
+                : <div className="books__alert grid halign-center">
                   <Alert text="You dont't have any books in this category :(" />
                 </div>}
             </section>

@@ -1,2 +1,14 @@
 .button {
+  position: relative;
+
+  &:not([data-active=true]) {
+    .button__context-menu { display: none }
+  }
+
+  &__context-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }

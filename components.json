@@ -4,5 +4,7 @@
   "Books": "books",
   "Book": "book",
   "Alert": "alert",
-  "Title": "title"
+  "Title": "title",
+  "Button": "button",
+  "ContextMenu": "context-menu"
 }
